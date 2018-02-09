@@ -5,7 +5,7 @@ package kotlin.cn.wjdghd.constants;
  */
 public class RuntimeConstants {
     public static final String LF ="\n";
-    public static final String PARAM="@param";
+    public static final String PARAM="@param ";
     public static final String SPACE=" ";
     public static final String RETURN="@return";
     public static final String DOC_INNER=" * ";
