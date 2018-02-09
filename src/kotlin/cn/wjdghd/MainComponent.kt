@@ -81,6 +81,7 @@ fun stringFactory(thisLine: String, realNextLine: String, realNext: String): Str
     val beginBeforeEachLine = realNextLine.beginSpaces()
     val r = getFunctionDeclarationLine(realNextLine)
     val stringLines = r.splitWithParams()
+    println(stringLines.joinToString("--"))
     //`  /** ` in first line
     val sb = StringBuilder()
     sb.append(beginBeforeEachLine)
@@ -92,14 +93,14 @@ fun stringFactory(thisLine: String, realNextLine: String, realNext: String): Str
         sb.append(DOC_INNER)
         if (it.isNotEmpty()) {
             sb.append(PARAM)
-            sb.append(it)
+            sb.append(it.trim())
             sb.append(LINE_SPLIT_COLON)
         }
         sb.append(LF)
     }
     sb.append(beginBeforeEachLine)
     sb.append(DOC_END)
-    return realNext.replace(thisLine, sb.toString())
+    return realNext.replaceFirst(thisLine, sb.toString())
 }
 
 fun getFunctionDeclarationLine(str: String): String {
